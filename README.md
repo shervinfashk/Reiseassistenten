@@ -1,4 +1,4 @@
-# Reisehjelperen
+# Reiseassistenten
 
 A command-line interface travel helper created using Python
 
