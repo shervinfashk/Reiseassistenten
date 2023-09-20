@@ -5,6 +5,7 @@ import sqlite3
 
 # This function uses the WeatherAPI to fetch details about the departure and arrival destinations weather. The weather is then displayed with the tabulate library.
 
+
 def get_current(query):
     try:
         url = "https://api.weatherapi.com/v1/current.json"
@@ -38,6 +39,7 @@ def get_current(query):
 
 
 # This function provides suggestions on what kind of clothes to bring based on the results in the get_current() function.
+
 
 def packing_list(temprature):
     temp = temprature
@@ -132,6 +134,7 @@ def packing_list(temprature):
 
 # Because I print so much using tabulate I decided creating a function which uses the method that I am intrested in. This way all the tables also look the same.
 
+
 def print_tabulate(tabulate_info):
     print(
         tabulate(tabulate_info, headers="keys", tablefmt="simple_grid", numalign="left")
@@ -139,6 +142,7 @@ def print_tabulate(tabulate_info):
 
 
 # This function provides the user with a menu so that they can see the available choices. It also calls on decide() which returns the users decision.
+
 
 def menu():
     instructions = [
@@ -154,7 +158,9 @@ def menu():
     decision = input("What would you like to do? ").lower()
     return decision
 
+
 # This function returns the user departure and arrival destination.
+
 
 def travel():
     departure = input("Where are you departing from? ")
@@ -162,7 +168,9 @@ def travel():
 
     return {"departure": departure, "arrival": arrival}
 
+
 # This function uses if-else statments to run functions based on the users input.
+
 
 def decide(decision, locations):
     if decision not in ["t", "p", "c", "e", "l", "s"]:
@@ -194,16 +202,20 @@ def decide(decision, locations):
     elif decision == "e":
         return "break"
 
+
 # This function is used for currency convertion and has two "sub-functions". The first "sub-function" uses is sql_currency() which returns the the arrival destinations currency code and the second "sub-function" is rates() which returns the exchange rate and the cost to exchange an amount provided by the user.
+
 
 def currency_convertor(locations):
     while True:
         try:
             amount = int(input("How many dollars (USD) would you like to exchange? "))
             try:
-                arrival = get_current(locations["arrival"])["tabulate_info"][0]["Country"]
+                arrival = get_current(locations["arrival"])["tabulate_info"][0][
+                    "Country"
+                ]
             except Exception:
-                return ("Sorry. We got no result on your search")
+                return "Sorry. We got no result on your search"
             arrival = sql_currency(arrival)
             exchange_rate = rates(arrival, amount)
             if not exchange_rate:
@@ -213,7 +225,9 @@ def currency_convertor(locations):
             print("You have to enter a number.")
             pass
 
+
 # This function uses SQLite3 to query the country_codes from the database and returns it. It also requires user input if necessary.
+
 
 def sql_currency(country):
     if len(country.split()) > 1:
@@ -242,7 +256,9 @@ def sql_currency(country):
             if svar == "yes":
                 return land[1]
 
-# This function uses the FreeCurrencyAPI to return the current exchange rate in USD and the cost to exchange an amount provided by the user. 
+
+# This function uses the FreeCurrencyAPI to return the current exchange rate in USD and the cost to exchange an amount provided by the user.
+
 
 def rates(arrival, amount):
     url = "https://api.freecurrencyapi.com/v1/latest"
@@ -262,7 +278,9 @@ def rates(arrival, amount):
         except KeyError:
             break
 
-# This function returns the country code which is later used in country_security() 
+
+# This function returns the country code which is later used in country_security()
+
 
 def sql_code(country):
     if len(country.split()) > 1:
@@ -292,7 +310,9 @@ def sql_code(country):
             if svar == "yes":
                 return land[1]
 
-# This function uses the API from Travel-Advisory and returns the message about the country's security. 
+
+# This function uses the API from Travel-Advisory and returns the message about the country's security.
+
 
 def secure_api(country):
     url = "https://www.travel-advisory.info/api?countrycode=" + country
@@ -300,7 +320,9 @@ def secure_api(country):
     resp = resp.json()
     return resp["data"][country]["advisory"]["message"]
 
+
 # This combines the functions mention aboved and prints the result.
+
 
 def country_security(locations):
     try:
