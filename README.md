@@ -11,7 +11,7 @@ I have not been able create unit tests for the program yet. It has only been tes
 ---
 ## Functions
 
-This program has a lot of functions. I am going to highlight one of them and describe them here. For further descriptions of the functions, look at the comments in [functions.py](www.vg.no)
+This program has a lot of functions. I am going to highlight one of them and describe them here. For further descriptions of the functions, look at the comments in [functions.py](https://github.com/shervinfashk/reisehjelperen/blob/main/functions.py)
 
 sql_currency(country) is a "sub-function" in the currency_convertor(locations) function. The sql_currency(country) is provided a country as the parameter and returns country's currency code. The currency code is required to be able to use the [FreeCurrency API](https://freecurrencyapi.com/). The first this this function does is to sjekk the lenght of the paramter provides. The reason for this is that countries provided by [WeatherAPI](https://www.weatherapi.com/) and the names in the database dont always match up and if the SQL query result in more then one result if can return the wrong currency code. For example the country provided by the API may have the name "United States of America" while this country's name in the database is "United States". Another example of this is when searching for "India" you get two results. "British Indian Ocean Territory" and "India". To solve this issue the user get the choice to look at all the results if the result list is longer then one and decide which country is correct.
 
