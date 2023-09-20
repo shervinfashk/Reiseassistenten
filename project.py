@@ -1,9 +1,5 @@
 from functions import menu, travel, decide
 
-# Vil du vite detaljoer om reisen dit?
-# Vil du vite hva du kan spise der og hvor?
-
-
 def main():
     print("Welcome! This CLI program tries to make your travel easier.")
     locations = travel()
