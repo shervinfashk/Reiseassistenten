@@ -4,7 +4,7 @@ A command-line interface travel helper created using Python
 
 Description: This program is a travel helper which provides the user with information about the departure and arrival destination. The program allows the user to compare tempratures, provides a suggestion for clothes to bring, compare currencies and check the safety rating of the arrival location. The program uses multiple API's. The API's used are: [FreeCurrency](https://freecurrencyapi.com/), [WeatherAPI](https://www.weatherapi.com/) and [Travel-Advisory](https://www.travel-advisory.info/data-api).
 
-My ambition with this program is to showcase that I understand basic programming concepts. I am happy with the way the program works, but I dont think the program is user-friendly or provides any useful-value to end users. My aim is that my next program will be created with the users needs as the first priority instead of being limited by my knowledge. 
+My ambition with this program is to showcase that I understand basic programming concepts. I am happy with the way the program works, but I dont think the program is user-friendly. There was multiple limitations in the API's since I used free versions which decreases the value for endusers. My aim is that my next program will be created with the users needs as the first priority instead of being limited by my knowledge and API limits. 
 
 I have not been able create unit tests for the program yet. It has only been tested manually, let me know if there is any issues.
 
