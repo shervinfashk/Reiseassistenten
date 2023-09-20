@@ -21,7 +21,7 @@ sql_currency(country) is a "sub-function" in the currency_convertor(locations) f
 
 ## Installation
 
-Use [pip](https://pip.pypa.io/en/stable/) to install the package `tabulate`, "sqlite3" and `requests`
+Use [pip](https://pip.pypa.io/en/stable/) to install the package `tabulate`, `sqlite3` and `requests`
 ```
 $ pip install tabulate
 ```
