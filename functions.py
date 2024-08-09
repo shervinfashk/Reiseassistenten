@@ -10,7 +10,7 @@ def get_current(query):
     try:
         url = "https://api.weatherapi.com/v1/current.json"
 
-        params = {"Key": "4b78e620f8d04e9cb05193741231609", "q": query}
+        params = {"Key": "", "q": query}
 
         resp = requests.get(url, params=params)
         resp = resp.json()
@@ -263,7 +263,7 @@ def sql_currency(country):
 def rates(arrival, amount):
     url = "https://api.freecurrencyapi.com/v1/latest"
 
-    params = {"apikey": "fca_live_qTV4kZLIzwDuKfkhPlJkpw55lOtePXp20emSBgJR"}
+    params = {"apikey": ""}
 
     while True:
         try:
